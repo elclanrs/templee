@@ -41,7 +41,7 @@ var movies = templee([
 ]);
 ```  
 
-Then you can use any of the methods available to filter your data and create an HTML string ready to be inserted into the DOM:
+Then you can use any of the methods available to filter your data and create an HTML string based on a template ready to be inserted into the DOM:
 
 ```javascript
 var template = [
