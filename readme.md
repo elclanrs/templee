@@ -194,7 +194,7 @@ movies.html(template, '<div class="container">');
 ### #{key}
 A single variable
 
-### @{<li>={key}</li>}
+### @{<tag>={key}</tag>`}
 `@{}` is the loop and inside you print the key `={key}`. This works for arrays an objects.
 
 ### @={key}
