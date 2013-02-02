@@ -51,7 +51,7 @@ var template = [
   '</div>'
 ];
 
-$('body').append(movies.where('gross').is('>=8').and('title').is(/^\d/).html(template));
+$('body').append(movies.where('score').is('>=8').and('title').is(/^\d/).html(template));
 ```
 
 The above appends the following markup:
