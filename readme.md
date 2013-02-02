@@ -200,6 +200,6 @@ A single variable
 ### `@={key}`
 Access and object's key directly.
 
-**Limitations:** Don't nest more than twice, it won't work. This is just to keep it simple. If you feel like you need more nesting consider prefixing your keys.
+**Limitations:** Don't nest more than twice, it won't work. This is just to keep it simple. If you feel like you need more nesting consider prefixing your keys instead.
 
 **Enjoy :)**
