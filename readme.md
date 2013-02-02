@@ -191,13 +191,13 @@ movies.html(template, '<div class="container">');
 
 ## Template format:
 
-### #{key}
+### `#{key}`
 A single variable
 
-### @{<tag>={key}</tag>`}
+### `@{<tag>={key}</tag>`}`
 `@{}` is the loop and inside you print the key `={key}`. This works for arrays an objects.
 
-### @={key}
+### `@={key}`
 Access and object key directly.
 
 **Limitations:** Don't nest more than twice, it won't work. This is just to keep it simple. If you feel like you need more nesting consider prefixing your keys.
