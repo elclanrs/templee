@@ -1,6 +1,6 @@
 
 /*jshint expr:true */
-/* Templee is a small DSL to create HTML content with a syntax similar to jQuery.
+/* Templee is a small API to create HTML content with a syntax similar to jQuery.
  * Author: Cedric Ruiz
  * License: MIT
  */
