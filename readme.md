@@ -11,32 +11,38 @@ var movies = templee([
   { 
     title: 'Spiderman', 
     score: 7, 
-    gross: 90e6 
+    gross: 90e6,
+    tags: ['Action', 'Superhero']
   },
   { 
     title: 'Aliens vs Predators', 
     score: 5, 
-    gross: 50e6
+    gross: 50e6,
+    tags: ['Action', 'Fantasy']
   },
   { 
     title: 'American Beauty', 
     score: 9.5, 
-    gross: 140e6 
+    gross: 140e6,
+    tags: ['Drama', 'Crime']
   },
   { 
     title: '500 Days of Summer', 
     score: 8.5, 
-    gross: 75e6 
+    gross: 75e6,
+    tags: ['Drama', 'Comedy']
   },
   { 
     title: 'Drive', 
     score: 7.5, 
-    gross: 120e6 
+    gross: 120e6,
+    tags: ['Drama', 'Action', 'Crime']
   },
   { 
     title: '127 Hours', 
     score: 9,
-    gross: 78e6 
+    gross: 78e6,
+    tags: ['Drama', 'Adventure']
   }
 ]);
 ```  
@@ -44,10 +50,12 @@ var movies = templee([
 Then you can use any of the methods available to filter your data and create an HTML string based on a template ready to be inserted into the DOM:
 
 ```javascript
+
 var template = [
   '<div class="movie">',
-    '<h1>#{title}</h1>',
-    '<h2>Score: #{score}, Gross: <span>#{gross}</span></h2>',
+    '<h2>#{title}</h2>',
+    '<h3>Score: #{score}, Gross: $#{gross}</h3>',
+    '<ul>@{<li>={tags}</li>}</ul>',
   '</div>'
 ];
 
@@ -58,13 +66,13 @@ The above appends the following markup:
 
 ```html
 <div class="movie">,
-  <h1>500 Days of Summer</h1>
-  <h2>Score: 8.5, Gross: <span>75000000</span></h2>
+  <h2>500 Days of Summer</h2>
+  <h3>Score: 8.5, Gross: $75000000</h3>
 </div>
 
 <div class="movie">,
-  <h1>#{title}</h1>
-  <h2>Score: 9, Gross: <span>78000000</span></h2>
+  <h2>127 Hours</h2>
+  <h2>Score: 9, Gross: $78000000</h2>
 </div>
 ```
 
@@ -164,6 +172,6 @@ Reduce data collection to the element in position `index`.
 
 Get an HTML string from data collection given the `template`.
 
-For a quick demo check: http://jsbin.com/omivel/1/edit
+For a quick demo check: http://jsbin.com/iwaduj/1/edit
 
 **Enjoy :)**

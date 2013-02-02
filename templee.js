@@ -1,7 +1,6 @@
+
 /*jshint expr:true */
-/*
- * Templee is a small DSL to quickly create data-driven HTML content
- * with a syntax similar to jQuery.
+/* Templee is a small DSL to create HTML content with a syntax similar to jQuery.
  * Author: Cedric Ruiz
  * License: MIT
  */
@@ -35,14 +34,26 @@
 
   // Fill HTML templates from an array of objects
   // Example:
-  //   var people = [{name: 'John'}, {name: 'Mike'}]
-  //   var html = _template(people, ['<p>#{name}</p>'])
+  //   var people = [{name: 'John', days: [1,10] }, {name: 'Mike', days: [4,8] }]
+  //   var html = _template(people, ['<p>#{name} @{<span>={days}</span>}</p>'])
+  // Example 2:
   function _template(arr, html) {
+    html = html.join('');
+    
+    var single = /#\{(\w+)\}/g,
+        list = /@\{([^{}]+)=\{(.+)\}([^{}]+)\}/g;
+    
     return arr.map(function(obj) {
-      return html.join('').replace(
-        /#\{(\w+)\}/g,
-        function(_, match) { return obj[match]; }
-      );
+      // A single value
+      return html.replace(single, function(_, match) { 
+        return obj[match]; 
+      })
+      // A list array
+      .replace(list, function(_, open, match, close) {
+        return obj[match].map(function(val) {
+          return open + val + close;
+        }).join('');
+      });
     }).join('');
   }
 
@@ -147,9 +158,9 @@
     eq: function(index) {
       return this._new(this.data[index]);
     },
-
-    html: function() {
-      return _template(this.data, [].slice.call(arguments));
+    
+    html: function(template) {
+      return _template(this.data, template);
     }
 
   };
