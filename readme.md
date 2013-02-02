@@ -183,6 +183,6 @@ Reduce data collection to the element in position `index`.
 
 Get an HTML string from data collection given the `template`.
 
-For a quick demo check: http://jsbin.com/iwaduj/1/edit
+For a quick demo check: http://jsbin.com/esivun/1/edit
 
 **Enjoy :)**
