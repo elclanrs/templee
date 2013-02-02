@@ -66,7 +66,7 @@ $('body').append(movies.where('score').is('>=8').and('title').is(/^\d/).html(tem
 The above appends the following markup:
 
 ```html
-<div class="movie">,
+<div class="movie">
   <h2>500 Days of Summer</h2>
   <h3>Score: 8.5, Gross: $75000000</h3>
   <h4>Tags:</h4>
@@ -76,7 +76,7 @@ The above appends the following markup:
   </ul>
 </div>
 
-<div class="movie">,
+<div class="movie">
   <h2>127 Hours</h2>
   <h2>Score: 9, Gross: $78000000</h2>
   <h4>Tags:</h4>
