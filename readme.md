@@ -1,6 +1,6 @@
 # Templee
 
-Templee is a small DSL to quickly create data-driven HTML content with a syntax similar to jQuery.
+Templee is a small DSL to quickly create data-driven HTML content with a syntax similar to jQuery. Templee doesn't have any dependencies and it should work in [any modern browser that supports EcmasScript5](http://kangax.github.com/es5-compat-table/).
 
 ## How to:
 
