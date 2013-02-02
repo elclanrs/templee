@@ -55,6 +55,7 @@ var template = [
   '<div class="movie">',
     '<h2>#{title}</h2>',
     '<h3>Score: #{score}, Gross: $#{gross}</h3>',
+    '<h4>Tags:</h4>',
     '<ul>@{<li>={tags}</li>}</ul>',
   '</div>'
 ];
@@ -68,11 +69,21 @@ The above appends the following markup:
 <div class="movie">,
   <h2>500 Days of Summer</h2>
   <h3>Score: 8.5, Gross: $75000000</h3>
+  <h4>Tags:</h4>
+  <ul>
+    <li>Drama</li>
+    <li>Comedy</li>
+  </ul>
 </div>
 
 <div class="movie">,
   <h2>127 Hours</h2>
   <h2>Score: 9, Gross: $78000000</h2>
+  <h4>Tags:</h4>
+  <ul>
+    <li>Drama</li>
+    <li>Adventure</li>
+  </ul>
 </div>
 ```
 
