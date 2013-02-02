@@ -36,17 +36,16 @@
   // Example:
   //   var people = [{name: 'John', days: [1,10] }, {name: 'Mike', days: [4,8] }]
   //   var html = _template(people, ['<p>#{name} @{<span>={days}</span>}</p>'])
-  // Example 2:
   function _template(arr, html) {
     html = html.join('');
-    
+
     var single = /#\{(\w+)\}/g,
         list = /@\{([^{}]+)=\{(.+)\}([^{}]+)\}/g;
-    
+
     return arr.map(function(obj) {
       // A single value
-      return html.replace(single, function(_, match) { 
-        return obj[match]; 
+      return html.replace(single, function(_, match) {
+        return obj[match];
       })
       // A list array
       .replace(list, function(_, open, match, close) {
@@ -158,7 +157,7 @@
     eq: function(index) {
       return this._new(this.data[index]);
     },
-    
+
     html: function(template) {
       return _template(this.data, template);
     }
