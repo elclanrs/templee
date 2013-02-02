@@ -189,4 +189,17 @@ Get an HTML string from data collection given the `template`. You can also wrap 
 movies.html(template, '<div class="container">');
 ```
 
+## Template format:
+
+### #{key}
+A single variable
+
+### @{<li>={key}</li>}
+`@{}` is the loop and inside you print the key `={key}`. This works for arrays an objects.
+
+### @={key}
+Access and object key directly.
+
+**Limitations:** Don't nest more than twice, it won't work. This is just to keep it simple. If you feel like you need more nesting consider prefixing your keys.
+
 **Enjoy :)**
