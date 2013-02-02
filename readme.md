@@ -192,10 +192,10 @@ movies.html(template, '<div class="container">');
 ## Template format:
 
 ### `#{key}`
-A single variable
+Print a single key
 
 ### `@{<tag>={key}</tag>}`
-`@{}` is the loop and inside you print the key `={key}`. This works for arrays an objects.
+A loop where `@{}` is the loop and `={key}` is each item. This works for arrays an objects.
 
 ### `@={key}`
 Access an object's key directly.
