@@ -1,4 +1,3 @@
-
 /*jshint expr:true */
 /* Templee is a small API to create HTML content with a syntax similar to jQuery.
  * Author: Cedric Ruiz
@@ -32,28 +31,36 @@
     return target;
   }
 
+  function _mapAndJoin(arr, fn) {
+    if (!arr) return;
+    return arr.map(_curry(fn)).join('');
+  }
+
   // Fill HTML templates from an array of objects
   // Example:
   //   var people = [{name: 'John', days: [1,10] }, {name: 'Mike', days: [4,8] }]
   //   var html = _template(people, ['<p>#{name} @{<span>={days}</span>}</p>'])
   function _template(arr, html) {
-    html = html.join('');
 
     var single = /#\{(\w+)\}/g,
         list = /@\{([^{}]+)=\{(.+)\}([^{}]+)\}/g;
 
-    return arr.map(function(obj) {
-      // A single value
-      return html.replace(single, function(_, match) {
-        return obj[match];
-      })
-      // A list array
-      .replace(list, function(_, open, match, close) {
-        return obj[match].map(function(val) {
-          return open + val + close;
-        }).join('');
+    return _mapAndJoin(arr, function(obj) {
+      return _mapAndJoin(html, function(htm) {
+
+        // Single
+        return htm.replace(single, function(_, match) {
+          return obj[match];
+        })
+
+        // List
+        .replace(list, function(_, open, match, close) {
+          return _mapAndJoin(obj[match], function(val) {
+            return open + val + close;
+          });
+        });
       });
-    }).join('');
+    });
   }
 
   Templee.prototype = {
@@ -169,3 +176,4 @@
   win.templee = templee; // expose constructor to user
 
 }(window));
+
