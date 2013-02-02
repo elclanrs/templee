@@ -56,7 +56,7 @@ var template = [
     '<h2>#{title}</h2>',
     '<h3>Score: #{score}, Gross: $#{gross}</h3>',
     '<h4>Tags:</h4>',
-    '<ul>@{<li>={tags}</li>}</ul>',
+    '<ul>@{<li class="tag">={tags}</li>}</ul>',
   '</div>'
 ];
 
@@ -71,8 +71,8 @@ The above appends the following markup:
   <h3>Score: 8.5, Gross: $75000000</h3>
   <h4>Tags:</h4>
   <ul>
-    <li>Drama</li>
-    <li>Comedy</li>
+    <li class="tag">Drama</li>
+    <li class="tag">Comedy</li>
   </ul>
 </div>
 
@@ -81,8 +81,8 @@ The above appends the following markup:
   <h2>Score: 9, Gross: $78000000</h2>
   <h4>Tags:</h4>
   <ul>
-    <li>Drama</li>
-    <li>Adventure</li>
+    <li class="tag">Drama</li>
+    <li class="tag">Adventure</li>
   </ul>
 </div>
 ```
