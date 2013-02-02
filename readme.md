@@ -1,6 +1,6 @@
 # Templee
 
-Templee is a small DSL to quicly create HTML content with a syntax similar to jQuery.
+Templee is a small DSL to quickly create HTML content with a syntax similar to jQuery.
 
 ## How to:
 
