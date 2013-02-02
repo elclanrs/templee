@@ -158,8 +158,10 @@
       return this._new(this.data[index]);
     },
 
-    html: function(template) {
-      return _template(this.data, template);
+    html: function(template, wrap) {
+      var tag = (/^<(\w+)/.exec(wrap) || [0,null])[1],
+          tmpl = _template(this.data, template);
+      return tag ? wrap + tmpl +'</'+ tag +'>' : tmpl;
     }
 
   };

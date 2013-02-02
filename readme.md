@@ -2,6 +2,8 @@
 
 Templee is a small API to quickly create data-driven HTML content with a syntax similar to jQuery. Templee doesn't have any dependencies and it should work in [any modern browser that supports ECMAScript5](http://kangax.github.com/es5-compat-table/).
 
+Quick demo: http://jsbin.com/esivun/1/edit
+
 ## How to:
 
 Creating templates with Templee is very easy. All you need to do is create an array with your data and pass it into `templee`:
@@ -179,10 +181,12 @@ movies.sort(function(a, b) {
 
 Reduce data collection to the element in position `index`.
 
-### html(template)
+### html(template, wrap)
 
-Get an HTML string from data collection given the `template`.
+Get an HTML string from data collection given the `template`. You can also wrap the result in the given tag.
 
-For a quick demo check: http://jsbin.com/esivun/1/edit
+```javascript
+movies.html(template, '<div class="container">');
+```
 
 **Enjoy :)**
