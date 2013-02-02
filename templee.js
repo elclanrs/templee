@@ -43,7 +43,8 @@
   function _template(arr, html) {
 
     var single = /#\{(\w+)\}/g,
-        list = /@\{([^{}]+)=\{(.+)\}([^{}]+)\}/g;
+        list = /@\{([^{}]+)=\{(.+)\}([^{}]+)\}/g,
+        item = /(@=\{.+\})/g;
 
     return _mapAndJoin(arr, function(obj) {
       return _mapAndJoin(html, function(htm) {
@@ -53,10 +54,19 @@
           return obj[match];
         })
 
+        // Remap item to use list
+        .replace(item, function(_, match) {
+          return match.replace('@=', '@{ =') +' }';
+        })
+
         // List
         .replace(list, function(_, open, match, close) {
-          return _mapAndJoin(obj[match], function(val) {
-            return open + val + close;
+          var key = match.match(/^\w+/)[0],
+              ob = match.gmatch(/\.(\w+)/g);
+
+          // Process object or array
+          return _mapAndJoin(ob.length ? ob : obj[key], function(val) {
+            return open + (ob.length ? obj[key][val] : val) + close;
           });
         });
       });
@@ -80,7 +90,11 @@
     // The property is passed as parameter into the 'fn' callback
     _filter: function(fn) {
       return this._new(this.data.filter(function(user, i) {
-        return fn.call(this, user[this.prop], i);
+        // Extra prop and subprop
+        var props = /(.+)\.(.+)/.exec(this.prop) || [0,null,null],
+            prop = props[1], sub = props[2];
+
+        return fn.call(this, sub ? user[prop][sub] : user[prop], i);
       }.bind(this)));
     },
 
@@ -171,6 +185,16 @@
       return tag ? wrap + tmpl +'</'+ tag +'>' : tmpl;
     }
 
+  };
+
+  String.prototype.gmatch = function(regex) {
+    var result = [];
+    this.replace(regex, function() {
+      // extract matches by removing arguments we don't need
+      var matches = [].slice.call(arguments, 1).slice(0,-2);
+      result.push.apply(result, matches);
+    });
+    return result;
   };
 
   win.templee = templee; // expose constructor to user
