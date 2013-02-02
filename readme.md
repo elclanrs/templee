@@ -163,3 +163,7 @@ Reduce data collection to the element in position `index`.
 ### html(template)
 
 Get an HTML string from data collection given the `template`.
+
+For a quick demo check: http://jsbin.com/omivel/1/edit
+
+**Enjoy :)**
