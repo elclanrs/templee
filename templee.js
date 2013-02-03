@@ -146,7 +146,7 @@
     },
 
     add: function(data) {
-      return this._new(this.data.concat[data]);
+      return this._new(this.get().concat[data]);
     },
 
     slice: function(start, end) {
@@ -158,11 +158,11 @@
     },
 
     map: function(fn) {
-      return this._new(this.data.map(_curry(fn)));
+      return this._new(this.get().map(_curry(fn)));
     },
 
     sort: function(fn) {
-      return this._new(this.data.sort(function(a, b) {
+      return this._new(this.get().sort(function(a, b) {
         return fn ? fn.apply(this, a, b) : a > b;
       }.bind(this)));
     },
