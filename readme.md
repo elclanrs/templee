@@ -8,44 +8,44 @@ Creating templates with Templee is very easy. All you need to do is create an ar
 
 ```javascript
 var movies = templee([
-  { 
-    title: 'Spiderman', 
-    score: 7, 
+  {
+    title: 'Spiderman',
+    score: 7,
     gross: 90e6,
     tags: ['Action', 'Superhero']
   },
-  { 
-    title: 'Aliens vs Predators', 
-    score: 5, 
+  {
+    title: 'Aliens vs Predators',
+    score: 5,
     gross: 50e6,
     tags: ['Action', 'Fantasy']
   },
-  { 
-    title: 'American Beauty', 
-    score: 9.5, 
+  {
+    title: 'American Beauty',
+    score: 9.5,
     gross: 140e6,
     tags: ['Drama', 'Crime']
   },
-  { 
-    title: '500 Days of Summer', 
-    score: 8.5, 
+  {
+    title: '500 Days of Summer',
+    score: 8.5,
     gross: 75e6,
     tags: ['Drama', 'Comedy']
   },
-  { 
-    title: 'Drive', 
-    score: 7.5, 
+  {
+    title: 'Drive',
+    score: 7.5,
     gross: 120e6,
     tags: ['Drama', 'Action', 'Crime']
   },
-  { 
-    title: '127 Hours', 
+  {
+    title: '127 Hours',
     score: 9,
     gross: 78e6,
     tags: ['Drama', 'Adventure']
   }
 ]);
-```  
+```
 
 Then you can use any of the methods available to filter your data and create an HTML string based on a template ready to be inserted into the DOM:
 
@@ -152,7 +152,7 @@ movies.add([{ title: 'JCVD', score: 8, gross: 30e6, tags: ['Drama', 'Action'] }]
 Works like the native array method.
 
 ```javascript
-movies.slice(0,1).get('title'); //=> ["Spiderman"] 
+movies.slice(0,1).get('title'); //=> ["Spiderman"]
 ```
 
 ### each(fn)
@@ -203,7 +203,7 @@ Get a key or sub-key.
 ```
 
 ### `@{<tag>={key}</tag>}`
-Loop an array where `@{}` is the loop and `={key}` is each item.
+Loop an array where `@{}` is the loop and `={key}` the array.
 
 ```html
 <ul>@{<li>={array}</li>}</ul>
