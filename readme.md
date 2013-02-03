@@ -91,7 +91,7 @@ The above appends the following markup:
 
 ### where(prop), and(prop)
 
-Start a chain by to filter by the given property.
+Start a chain to filter by the given property.
 
 ### is(number|string)
 
