@@ -37,7 +37,7 @@
 
   function _findProp(obj, prop) {
     var props = prop.split('.'), tmp = obj;
-    return props.map(function(p) { return tmp = tmp[p]; }).pop();
+    return props.map(function(p) { return tmp = tmp[p]; }).pop() || [];
   }
 
   // Fill HTML templates from an array of objects
