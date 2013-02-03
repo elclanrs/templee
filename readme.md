@@ -199,7 +199,7 @@ Get a key or sub-key.
 
 ```html
 <h1>#{key}</h1>
-<h2>#{obj.key}, #{obj.key}</h2>
+<h2>#{key.sub}, #{key.sub.sub}</h2>
 ```
 
 ### `@{<tag>={key}</tag>}`
@@ -207,7 +207,7 @@ Loop an array where `@{}` is the loop and `={key}` the array.
 
 ```html
 <ul>@{<li>={array}</li>}</ul>
-<ul>@{<li>={obj.array}</li>}</ul>
+<ul>@{<li>={key.array}</li>}</ul>
 ```
 
 **Enjoy :)**
