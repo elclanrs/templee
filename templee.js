@@ -1,4 +1,4 @@
-/*jshint expr:true */
+/*jslint es5:true expr:true */
 /* Templee is a small API to create HTML content with a syntax similar to jQuery.
  * Author: Cedric Ruiz
  * License: MIT
@@ -8,6 +8,8 @@
 //---------------------------------------------------------------------
 
 (function(win) {
+
+  'use strict';
 
   // Constructor
   function Templee(data) {
@@ -178,4 +180,3 @@
   win.templee = templee; // expose constructor to user
 
 }(window));
-
