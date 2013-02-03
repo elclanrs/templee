@@ -28,7 +28,6 @@
   }
 
   function _extend(obj, target) {
-    for (var o in obj) target[o] = obj[o];
     return target;
   }
 
@@ -50,7 +49,8 @@
     html = html.join('');
 
     var props = /#\{([\w.]+)\}/g,
-        loops = /@\{([^{}]+)=\{([^{}]+)\}([^{}]+)\}/g;
+        loops = /@\{([^{}]+)=\{([^{}]+)\}([^{}]+)\}/g,
+        objs = /@\[(.+)\]\{(.+)\}/g;
 
     return _mapAndJoin(data, function(obj) {
 
@@ -61,6 +61,12 @@
       .replace(loops, function(_, open, prop, close) {
         return _mapAndJoin(_findProp(obj, prop), function(key) {
           return open + key + close;
+        });
+      })
+
+      .replace(objs, function(_, match, keys) {
+        return keys.replace(/=\{([^{}]+)\}/g, function(_, key) {
+          return _findProp(_findProp(obj, match), key);
         });
       });
 

@@ -202,8 +202,12 @@ Get a key or sub-key.
 <h2>#{key.sub}, #{key.sub.sub}</h2>
 ```
 
-### `@{<tag>={key}</tag>}`
-Loop an array where `@{}` is the loop and `={key}` the array.
+### `@{<tag>={arr}</tag>}`
+Loop an array where `@{}` is the loop and `={arr}` the array.
+
+### `@[obj]{<tag>={key}, ={key.sub}</tag>}`
+
+Loop an object and print its keys.
 
 ```html
 <ul>@{<li>={array}</li>}</ul>
