@@ -93,7 +93,7 @@ The above appends the following markup:
 
 ### where(prop), and(prop)
 
-Filter the collection my the given property.
+Start a chain by to filter by the given property.
 
 ### is(number|string)
 
