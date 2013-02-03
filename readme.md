@@ -102,6 +102,7 @@ Filter elements where the current property matches the given string or number.
 ```javascript
 movies.where('title').is('Spiderman');
 movies.where('score').is(9.5);
+movies.where('info.director').is('Quentin Tarantino');
 ```
 
 ### is(expression)
