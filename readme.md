@@ -167,6 +167,10 @@ movies.each(function(movie, index) {
 });
 ```
 
+### map(fn)
+
+Works like the native `map` method but returns a Templee instance.
+
 ### sort(fn)
 
 Sort data collection by the given function
@@ -192,13 +196,20 @@ movies.html(template, '<div class="container">');
 ## Template format:
 
 ### `#{key}`
-Print a single key
+Get a key or sub-key.
+
+```html
+<h1>#{key}</h1>
+<h2>#{obj.key}, #{obj.key}</h2>
+```
 
 ### `@{<tag>={key}</tag>}`
-A loop where `@{}` is the loop and `={key}` is each item. This works for arrays an objects.
+Loop an array where `@{}` is the loop and `={key}` is each item.
 
-### `@={key}`
-Access an object's key directly.
+```html
+<ul>@{<li>={array}</li>}</ul>
+<ul>@{<li>={obj.array}</li>}</ul>
+```
 
 **Limitations:** Don't nest more than twice, it won't work. This is just to keep it simple. If you feel like you need more nesting consider prefixing your keys instead.
 

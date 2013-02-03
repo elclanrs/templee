@@ -36,40 +36,34 @@
     return arr.map(_curry(fn)).join('');
   }
 
+  function _splitKeys(obj, prop) {
+    var keys = prop.split('.');
+    return keys.length > 1 ? obj[keys[0]][keys[1]]: obj[keys[0]];
+  }
+
   // Fill HTML templates from an array of objects
   // Example:
   //   var people = [{name: 'John', days: [1,10] }, {name: 'Mike', days: [4,8] }]
   //   var html = _template(people, ['<p>#{name} @{<span>={days}</span>}</p>'])
-  function _template(arr, html) {
+  function _template(data, html) {
 
-    var single = /#\{(\w+)\}/g,
-        list = /@\{([^{}]+)=\{(.+)\}([^{}]+)\}/g,
-        item = /(@=\{.+\})/g;
+    html = html.join('');
 
-    return _mapAndJoin(arr, function(obj) {
-      return _mapAndJoin(html, function(htm) {
+    var props = /#\{([\w.]+)\}/g,
+        loops = /@\{([^{}]+)=\{([^{}]+)\}([^{}]+)\}/g;
 
-        // Single
-        return htm.replace(single, function(_, match) {
-          return obj[match];
-        })
+    return _mapAndJoin(data, function(obj) {
 
-        // Remap item to use list
-        .replace(item, function(_, match) {
-          return match.replace('@=', '@{ =') +' }';
-        })
+      return html.replace(props, function(_, prop) {
+        return _splitKeys(obj, prop);
+      })
 
-        // List
-        .replace(list, function(_, open, match, close) {
-          var key = match.match(/^\w+/)[0],
-              ob = match.gmatch(/\.(\w+)/g);
-
-          // Process object or array
-          return _mapAndJoin(ob.length ? ob : obj[key], function(val) {
-            return open + (ob.length ? obj[key][val] : val) + close;
-          });
+      .replace(loops, function(_, open, prop, close) {
+        return _mapAndJoin(_splitKeys(obj, prop), function(key) {
+          return open + key + close;
         });
       });
+
     });
   }
 
@@ -89,12 +83,8 @@
     // Filter the current data property with a function.
     // The property is passed as parameter into the 'fn' callback
     _filter: function(fn) {
-      return this._new(this.data.filter(function(user, i) {
-        // Extra prop and subprop
-        var props = /(.+)\.(.+)/.exec(this.prop) || [0,null,null],
-            prop = props[1], sub = props[2];
-
-        return fn.call(this, sub ? user[prop][sub] : user[prop], i);
+      return this._new(this.data.filter(function(obj, i) {
+        return fn.call(this, _splitKeys(obj, this.prop), i);
       }.bind(this)));
     },
 
@@ -122,8 +112,6 @@
         new RegExp('^'+ condition +'$');
 
       // Extracts the symbol in cases like '>50' and '<=10'.
-      // 'null' and '0' are given as default symbol and number
-      // when no matches are found
       var symbol = (/^([<>=%]+)([\d.]+)/.exec(condition) || [0,null,0]);
 
       if (symbol[1]) return this[symbol[1]](+symbol[2]);
@@ -185,16 +173,6 @@
       return tag ? wrap + tmpl +'</'+ tag +'>' : tmpl;
     }
 
-  };
-
-  String.prototype.gmatch = function(regex) {
-    var result = [];
-    this.replace(regex, function() {
-      // extract matches by removing arguments we don't need
-      var matches = [].slice.call(arguments, 1).slice(0,-2);
-      result.push.apply(result, matches);
-    });
-    return result;
   };
 
   win.templee = templee; // expose constructor to user

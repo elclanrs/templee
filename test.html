@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Templee</title>
+</head>
+<body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+<script src="templee.js"></script>
+<script>
+
+var movies = templee([
+  { 
+    title: 'Spider-Man', 
+    score: 7.3, 
+    gross: 140e6,
+    tags: ['Action', 'Adventure', 'Fantasy'],
+    info: {
+      year: 2002,
+      director: 'Sam Raimi',
+      actors: ['Tobey Maguire', 'Kirsten Dunst', 'Willem Dafoe']
+    }
+  },
+  { 
+    title: 'Requiem for a Dream', 
+    score: 8.4, 
+    gross: 20e6,
+    tags: ['Drama'],
+    info: {
+      year: 2000,
+      director: 'Darren Aronofsky',
+      actors: ['Ellen Burstyn', 'Jared Leto', 'Jennifer Connelly']
+    }
+  }
+]);
+
+var template = [
+  '<div class="movie">',
+    '<h2>Title: #{title}</h2>',
+    '<h3>Score: #{score}, Gross: #{gross}</h3>',
+    '<ul>@{<li>={tags}</li>}</ul>',
+    '<p>Year: #{info.year}</p><p>Director: #{info.director}</p>',
+    '<ul>@{<li>={info.actors}</li>}</ul>',
+  '</div>'
+];
+
+$('body').append(movies.html(template));
+
+console.log(movies.where('info.year').is('>=2001'))
+
+</script>
+</body>
+</html>
