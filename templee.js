@@ -1,4 +1,4 @@
-/*jslint es5:true expr:true */
+/*jslint es5:true expr:true boss:true */
 /* Templee is a small API to create HTML content with a syntax similar to jQuery.
  * Author: Cedric Ruiz
  * License: MIT
@@ -36,9 +36,9 @@
     return arr.map(_curry(fn)).join('');
   }
 
-  function _splitKeys(obj, prop) {
-    var keys = prop.split('.');
-    return keys.length > 1 ? obj[keys[0]][keys[1]]: obj[keys[0]];
+  function _findProp(obj, prop) {
+    var props = prop.split('.'), tmp = obj;
+    return props.map(function(p) { return tmp = tmp[p]; }).pop();
   }
 
   // Fill HTML templates from an array of objects
@@ -55,11 +55,11 @@
     return _mapAndJoin(data, function(obj) {
 
       return html.replace(props, function(_, prop) {
-        return _splitKeys(obj, prop);
+        return _findProp(obj, prop);
       })
 
       .replace(loops, function(_, open, prop, close) {
-        return _mapAndJoin(_splitKeys(obj, prop), function(key) {
+        return _mapAndJoin(_findProp(obj, prop), function(key) {
           return open + key + close;
         });
       });
@@ -84,7 +84,7 @@
     // The property is passed as parameter into the 'fn' callback
     _filter: function(fn) {
       return this._new(this.data.filter(function(obj, i) {
-        return fn.call(this, _splitKeys(obj, this.prop), i);
+        return fn.call(this, _findProp(obj, this.prop), i);
       }.bind(this)));
     },
 

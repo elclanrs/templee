@@ -210,6 +210,4 @@ Loop an array where `@{}` is the loop and `={key}` the array.
 <ul>@{<li>={obj.array}</li>}</ul>
 ```
 
-**Limitations:** Don't nest more than twice, it won't work. This is just to keep it simple. If you feel like you need more nesting consider prefixing your keys instead.
-
 **Enjoy :)**
