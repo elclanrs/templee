@@ -51,14 +51,13 @@ Then you can use any of the methods available to filter your data and create an 
 
 ```javascript
 
-var template = [
-  '<div class="movie">',
-    '<h2>#{title}</h2>',
-    '<h3>Score: #{score}, Gross: $#{gross}</h3>',
-    '<h4>Tags:</h4>',
-    '<ul>@{<li class="tag">={tags}</li>}</ul>',
-  '</div>'
-];
+var template =
+  '<div class="movie">\
+    <h2>#{title}</h2>\
+    <h3>Score: #{score}, Gross: $#{gross}</h3>\
+    <h4>Tags:</h4>\
+    <ul>@{<li class="tag">={tags}</li>}</ul>\
+  </div>';
 
 $('body').append(movies.where('score').is('>=8').and('title').is(/^\d/).html(template));
 ```

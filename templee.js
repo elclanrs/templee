@@ -46,8 +46,6 @@
   //   var html = _template(people, ['<p>#{name} @{<span>={days}</span>}</p>'])
   function _template(data, html) {
 
-    html = html.join('');
-
     var props = /#\{([\w.]+)\}/g,
         loops = /@\{([^{}]+)=\{([^{}]+)\}([^{}]+)\}/g,
         objs = /@\[(.+)\]\{(.+)\}/g;
