@@ -146,29 +146,29 @@
     },
 
     add: function(data) {
-      return this._new(this.get().concat[data]);
+      return this._new(this.data.concat[data]);
     },
 
     slice: function(start, end) {
-      return this._new(this.get().slice(start, end));
+      return this._new(this.data.slice(start, end));
     },
 
     each: function(fn) {
-      return this.get().some(_curry(fn)), this;
+      return this.data.some(_curry(fn)), this;
     },
 
     map: function(fn) {
-      return this._new(this.get().map(_curry(fn)));
+      return this._new(this.data.map(_curry(fn)));
     },
 
     sort: function(fn) {
-      return this._new(this.get().sort(function(a, b) {
+      return this._new(this.data.sort(function(a, b) {
         return fn ? fn.apply(this, a, b) : a > b;
       }.bind(this)));
     },
 
     eq: function(index) {
-      return this._new(this.get()[index]);
+      return this._new(this.data[index]);
     },
 
     html: function(template, wrap) {
