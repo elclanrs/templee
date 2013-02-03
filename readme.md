@@ -197,21 +197,58 @@ movies.html(template, '<div class="container">');
 ### `#{key}`
 Get a key or sub-key.
 
+```javascript
+var data = templee([
+  {
+    name: 'John',
+    info: {
+      age: 25,
+      status: 'Married'
+    }
+  }
+]);
+````
 ```html
-<h1>#{key}</h1>
-<h2>#{key.sub}, #{key.sub.sub}</h2>
+<h1>#{name}</h1>
+<h2>#{info.age}, #{info.status}</h2>
 ```
 
 ### `@{<tag>={arr}</tag>}`
 Loop an array where `@{}` is the loop and `={arr}` the array.
 
-### `@[obj]{<tag>={key}, ={key.sub}</tag>}`
+```javascript
+var data = templee([
+  {
+    name: 'John',
+    hobbies: ['Videogames', 'Soccer', 'Basketball'],
+    info: {
+      numbers: [1,2,3,4]
+    }
+  }
+]);
+````
+```html
+<ul>@{<li>={hobbies}</li>}</ul>
+<ul>@{<li>={info.numbers}</li>}</ul>
+```
 
+
+### `@[obj]{<tag>={key}, ={key.sub}</tag>}`
 Loop an object and print its keys.
 
+```javascript
+var data = templee([
+  {
+    name: 'John',
+    info: {
+      foo: 'hello',
+      baz: 'byebye',
+    }
+  }
+]);
+````
 ```html
-<ul>@{<li>={array}</li>}</ul>
-<ul>@{<li>={key.array}</li>}</ul>
+<p>@[info]{<i>={foo}</i><span>={baz}</span>}</p>
 ```
 
 **Enjoy :)**
