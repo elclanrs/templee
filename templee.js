@@ -8,7 +8,6 @@
 //---------------------------------------------------------------------
 
 (function(win) {
-
   'use strict';
 
   // Constructor
@@ -34,7 +33,6 @@
   }
 
   function _mapAndJoin(arr, fn) {
-    if (!arr) return;
     return arr.map(_curry(fn)).join('');
   }
 
