@@ -168,7 +168,7 @@
     },
 
     eq: function(index) {
-      return this._new(this.data[index]);
+      return this._new(this.get()[index]);
     },
 
     html: function(template, wrap) {
