@@ -250,7 +250,7 @@ var data = templee([
 <p>@[info]{<i>={foo}</i><span>={baz}</span>}</p>
 ```
 
-You can as well get keys inside a loop:
+You can also access keys inside a loop:
 
 ```javascript
 var data = templee([
