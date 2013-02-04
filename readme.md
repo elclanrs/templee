@@ -265,4 +265,13 @@ var data = templee([
 <ul>@{<li class="#{class}">={array}</li>}</ul>
 ```
 
+**Limitations:** Don't use spaces in keys, use underscores instead:
+
+```javascript
+// NOP
+var data = templee([{ 'first name': 'John' }]);
+// YUP
+var data = templee([{ first_name: 'John' }]);
+````
+
 **Enjoy :)**
