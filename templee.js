@@ -28,6 +28,7 @@
   }
 
   function _extend(obj, target) {
+    for (var o in obj) target[o] = obj[o];
     return target;
   }
 
