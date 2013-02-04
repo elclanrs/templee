@@ -2,13 +2,13 @@
 
 Templee is a small API to quickly create data-driven HTML content with a syntax similar to jQuery. Templee doesn't have any dependencies and it should work in [any modern browser that supports ECMAScript5](http://kangax.github.com/es5-compat-table/).
 
+### Updates:
+**02/14/13**
+- Allow spaces in keys to be able to use JSON as well
+
 ## How to:
 
 Creating templates with Templee is very easy. All you need to do is create an array with your data and pass it into `templee`:
-
-## Updates:
-**02/14/13**
-- Allow spaces in keys to be able to use JSON as well
 
 ```javascript
 var movies = templee([
