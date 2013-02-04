@@ -265,7 +265,7 @@ var data = templee([
 <ul>@{<li class="#{class}">={array}</li>}</ul>
 ```
 
-**Limitations:** Don't use spaces in keys, use underscores instead:
+**Limitations:** Don't use spaces in keys, use underscores or camelCase instead:
 
 ```javascript
 // NOP
