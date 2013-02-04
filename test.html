@@ -12,9 +12,9 @@
 <script>
 
 var movies = templee([
-  { 
-    title: 'Spider-Man', 
-    score: 7.3, 
+  {
+    title: 'Spider-Man',
+    score: 7.3,
     gross: 140e6,
     tags: ['Action', 'Adventure', 'Fantasy'],
     info: {
@@ -23,9 +23,9 @@ var movies = templee([
       actors: ['Tobey Maguire', 'Kirsten Dunst', 'Willem Dafoe']
     }
   },
-  { 
-    title: 'Requiem for a Dream', 
-    score: 8.4, 
+  {
+    title: 'Requiem for a Dream',
+    score: 8.4,
     gross: 20e6,
     tags: ['Drama'],
     info: {
@@ -36,15 +36,14 @@ var movies = templee([
   }
 ]);
 
-var template = [
-  '<div class="movie">',
-    '<h2>Title: #{title}</h2>',
-    '<h3>Score: #{score}, Gross: #{gross}</h3>',
-    '<ul>@{<li>={tags}</li>}</ul>',
-    '<p>Year: #{info.year}</p><p>Director: #{info.director}</p>',
-    '<ul>@{<li>={info.actors}</li>}</ul>',
-  '</div>'
-];
+var template =
+  '<div class="movie">\
+    <h2>Title: #{title}</h2>\
+    <h3>Score: #{score}, Gross: #{gross}</h3>\
+    <ul>@{<li>={tags}</li>}</ul>\
+    <p>Year: #{info.year}</p><p>Director: #{info.director}</p>\
+    <ul>@{<li>={info.actors}</li>}</ul>\
+  </div>';
 
 $('body').append(movies.html(template));
 
