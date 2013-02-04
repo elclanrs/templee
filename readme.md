@@ -265,14 +265,5 @@ var data = templee([
   }
 ]);
 ````
-```html
-<ul>@{<li class="#{class}">={array}</li>}</ul>
-```
-```javascript
-// NOP
-var data = templee([{ 'first name': 'John' }]);
-// YUP
-var data = templee([{ first_name: 'John' }]);
-````
 
 **Enjoy :)**
