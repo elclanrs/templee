@@ -162,9 +162,7 @@
     },
 
     sort: function(fn) {
-      return this._new(this.data.sort(function() {
-        return fn.apply(this, [].slice.call(arguments));
-      }.bind(this)));
+      return this._new(this.data.sort(_curry(fn)));
     },
 
     eq: function(index) {
