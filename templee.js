@@ -162,8 +162,8 @@
     },
 
     sort: function(fn) {
-      return this._new(this.data.sort(function(a, b) {
-        return fn ? fn.apply(this, a, b) : a > b;
+      return this._new(this.data.sort(function() {
+        return fn.apply(this, [].slice.call(arguments));
       }.bind(this)));
     },
 
