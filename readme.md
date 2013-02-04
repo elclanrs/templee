@@ -265,5 +265,8 @@ var data = templee([
   }
 ]);
 ````
+```html
+<ul>@{<li class="#{class}">={array}</li>}</ul>
+```
 
 **Enjoy :)**
