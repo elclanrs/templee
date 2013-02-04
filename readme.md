@@ -6,6 +6,10 @@ Templee is a small API to quickly create data-driven HTML content with a syntax 
 
 Creating templates with Templee is very easy. All you need to do is create an array with your data and pass it into `templee`:
 
+## Updates:
+**02/14/13**
+- Allow spaces in keys to be able to use JSON as well
+
 ```javascript
 var movies = templee([
   {
@@ -264,9 +268,6 @@ var data = templee([
 ```html
 <ul>@{<li class="#{class}">={array}</li>}</ul>
 ```
-
-**Limitations:** Don't use spaces in keys, use underscores or camelCase instead:
-
 ```javascript
 // NOP
 var data = templee([{ 'first name': 'John' }]);
