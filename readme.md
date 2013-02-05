@@ -237,7 +237,7 @@ var data = templee([
 ```
 
 
-### Loop an object: '`@[obj]{<tag>={key}</tag>}`
+### Loop an object: `@[obj]{<tag>={key}</tag>}`
 Loop an object and print its keys.
 
 ```javascript
