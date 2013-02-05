@@ -217,7 +217,7 @@ var data = templee([
 <h2>#{info.age}, #{info.status}</h2>
 ```
 
-### Loop an array: `@{<tag>={arr}</tag>}`
+### Loop an array: `@{={arr}}`
 Loop an array where `@{}` is the loop and `={arr}` the array.
 
 ```javascript
@@ -243,7 +243,7 @@ You can also access keys inside a loop:
 <ul>@{<li class="#{class}">={hobbies}</li>}</ul>
 ```
 
-### Loop an object: `@[obj]{<tag>={key}</tag>}`
+### Loop an object: `@[obj]{={key}}`
 Loop an object and print its keys.
 
 ```javascript
