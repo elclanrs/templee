@@ -57,7 +57,7 @@
       // to process props and loops
       return html.replace(objs, function(_, parent, keys) {
         // keys
-        //'&' is a flag to identify children keys only
+        //'&' is a flag to identify children keys
         return keys.replace(/=\{([^{}]+)\}/g, '#&{'+ parent +'.$1}')
         // loops
         .replace(/(@.+)/g, function(_, k) { return k.replace('#&','='); });
