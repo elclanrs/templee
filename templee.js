@@ -147,7 +147,7 @@
     },
 
     add: function(data) {
-      return this._new(this.data.concat[data]);
+      return this.data.push(data), this;
     },
 
     slice: function(start, end) {

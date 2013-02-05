@@ -47,7 +47,19 @@ var template =
 
 $('body').append(movies.html(template));
 
-console.log(movies.where('info.year').is('>=2001'))
+var newMovie =   {
+  title: 'Identity Thief',
+  score: 6.5,
+  gross: 100e6,
+  tags: ['Comedy', 'Crime'],
+  info: {
+    year: 2013,
+    director: 'Seth Gordon',
+    actors: ['Jason Bateman', 'Melissa McCarthy']
+  }
+};
+
+console.log(movies.add(newMovie).get());
 
 </script>
 </body>
