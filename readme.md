@@ -198,7 +198,7 @@ movies.html(template, '<div class="container">');
 
 ## Template format:
 
-### `#{key}`
+### Access a key: `#{key}`
 Get a key or sub-key.
 
 ```javascript
@@ -217,7 +217,7 @@ var data = templee([
 <h2>#{info.age}, #{info.status}</h2>
 ```
 
-### `@{<tag>={arr}</tag>}`
+### Loop an array: `@{<tag>={arr}</tag>}`
 Loop an array where `@{}` is the loop and `={arr}` the array.
 
 ```javascript
@@ -237,7 +237,7 @@ var data = templee([
 ```
 
 
-### `@[obj]{<tag>={key}</tag>}`
+### Loop an object: '`@[obj]{<tag>={key}</tag>}`
 Loop an object and print its keys.
 
 ```javascript
