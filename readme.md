@@ -148,6 +148,7 @@ Append more data to the current collection.
 
 ```javascript
 movies.add({ title: 'JCVD', score: 8, gross: 30e6, tags: ['Drama', 'Action'] });
+movies.add([{}, {}, {}, ...]);
 ```
 
 ### slice(start, end)
