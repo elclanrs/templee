@@ -224,6 +224,7 @@ Loop an array where `@{}` is the loop and `={arr}` the array.
 var data = templee([
   {
     name: 'John',
+    class: 'yellow',
     hobbies: ['Videogames', 'Soccer', 'Basketball'],
     info: {
       numbers: [1,2,3,4]
@@ -238,38 +239,12 @@ var data = templee([
 
 You can also access keys inside a loop:
 
-```javascript
-var data = templee([
-  {
-    name: 'John',
-    class: 'yellow',
-    array: [1,2,3,4]
-  }
-]);
-````
 ```html
-<ul>@{<li class="#{class}">={array}</li>}</ul>
+<ul>@{<li class="#{class}">={hobbies}</li>}</ul>
 ```
 
 ### Loop an object: `@[obj]{<tag>={key}</tag>}`
 Loop an object and print its keys.
-
-```javascript
-var data = templee([
-  {
-    name: 'John',
-    info: {
-      foo: 'hello',
-      baz: 'byebye',
-    }
-  }
-]);
-````
-```html
-<p>@[info]{<i>={foo}</i><span>={baz}</span>}</p>
-```
-
-Other comlplex examples are also possible:
 
 ```javascript
 var movies = templee([
@@ -287,6 +262,12 @@ var movies = templee([
   }
 ]);
 ```
+```html
+<p>@[info]{Year: ={year}, Director: ={director}}</p>
+```
+
+Other more complex examples are also possible:
+
 ```html
 <div class="movie">
   <h2>Title: #{title}</h2>
