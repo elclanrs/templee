@@ -236,6 +236,20 @@ var data = templee([
 <ul>@{<li>={info.numbers}</li>}</ul>
 ```
 
+You can also access keys inside a loop:
+
+```javascript
+var data = templee([
+  {
+    name: 'John',
+    class: 'yellow',
+    array: [1,2,3,4]
+  }
+]);
+````
+```html
+<ul>@{<li class="#{class}">={array}</li>}</ul>
+```
 
 ### Loop an object: `@[obj]{<tag>={key}</tag>}`
 Loop an object and print its keys.
@@ -253,21 +267,6 @@ var data = templee([
 ````
 ```html
 <p>@[info]{<i>={foo}</i><span>={baz}</span>}</p>
-```
-
-You can also access keys inside a loop:
-
-```javascript
-var data = templee([
-  {
-    name: 'John',
-    class: 'yellow',
-    array: [1,2,3,4]
-  }
-]);
-````
-```html
-<ul>@{<li class="#{class}">={array}</li>}</ul>
 ```
 
 Other comlplex examples are also possible:
