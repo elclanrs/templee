@@ -147,7 +147,7 @@ movies.where('score').is(9).get('title'); //=> ['127 Hours']
 Append more data to the current collection.
 
 ```javascript
-movies.add([{ title: 'JCVD', score: 8, gross: 30e6, tags: ['Drama', 'Action'] }]);
+movies.add({ title: 'JCVD', score: 8, gross: 30e6, tags: ['Drama', 'Action'] });
 ```
 
 ### slice(start, end)
