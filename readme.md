@@ -270,4 +270,34 @@ var data = templee([
 <ul>@{<li class="#{class}">={array}</li>}</ul>
 ```
 
+Other comlplex examples are also possible:
+
+```javascript
+var movies = templee([
+  {
+    title: 'Spider-Man',
+    score: 7.3,
+    gross: 140e6,
+    tags: ['Action', 'Adventure', 'Fantasy'],
+    class: 'featured',
+    info: {
+      year: 2002,
+      director: 'Sam Raimi',
+      actors: ['Tobey Maguire', 'Kirsten Dunst', 'Willem Dafoe']
+    }
+  }
+]);
+```
+```html
+<div class="movie">
+  <h2>Title: #{title}</h2>
+  <h3>Score: #{score}, Gross: #{gross}</h3>
+  <ul>@{<li>={tags}</li>}</ul>
+  <div>@[info]{
+    <p>Year: ={year}</p><p>Director: ={director}</p>
+    <ul>@{<li class="#{class}">={actors}</li>}</ul>
+  }</div>
+</div>
+```
+
 **Enjoy :)**

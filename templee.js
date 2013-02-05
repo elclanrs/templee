@@ -47,13 +47,23 @@
   //   var html = _template(people, ['<p>#{name} @{<span>={days}</span>}</p>'])
   function _template(data, html) {
 
-    var props = /#\{([^{}]+)\}/g,
-        loops = /@\{([^{}]+)=\{([^{}]+)\}([^{}]+)\}/g,
-        objs = /@\[(.+)\]\{(.+)\}/g;
+    var objs = /@\[(.+)\]\{(.+)\}/g,
+        props = /#&?\{([^{}]+)\}/g,
+        loops = /@\{([^{}]+)=\{([^{}]+)\}([^{}]+)\}/g;
 
     return _mapAndJoin(data, function(obj) {
 
-      return html.replace(props, function(_, prop) {
+      // Replace object keys with full object path
+      // to process props and loops
+      return html.replace(objs, function(_, parent, keys) {
+        // keys
+        //'&' is a flag to identify children keys only
+        return keys.replace(/=\{([^{}]+)\}/g, '#&{'+ parent +'.$1}')
+        // loops
+        .replace(/(@.+)/g, function(_, k) { return k.replace('#&','='); });
+      })
+
+      .replace(props, function(_, prop) {
         return _findProp(obj, prop);
       })
 
@@ -63,11 +73,6 @@
         });
       })
 
-      .replace(objs, function(_, match, keys) {
-        return keys.replace(/=\{([^{}]+)\}/g, function(_, key) {
-          return _findProp(_findProp(obj, match), key);
-        });
-      });
 
     });
   }
