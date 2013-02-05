@@ -274,7 +274,8 @@ Other more complex examples are also possible:
   <h3>Score: #{score}, Gross: #{gross}</h3>
   <ul>@{<li>={tags}</li>}</ul>
   <div>@[info]{
-    <p>Year: ={year}</p><p>Director: ={director}</p>
+    <p>Year: ={year}</p>
+    <p>Director: ={director}</p>
     <ul>@{<li class="#{class}">={actors}</li>}</ul>
   }</div>
 </div>
