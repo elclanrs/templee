@@ -76,7 +76,7 @@
 
     // Private:
 
-    // Update data and return a new instance.
+    // Update data and return the instance.
     // We need to clone the objects otherwise
     // they would be passed as reference
     _new: function(result) {
