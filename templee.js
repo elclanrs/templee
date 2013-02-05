@@ -80,9 +80,9 @@
     // We need to clone the objects otherwise
     // they would be passed as reference
     _new: function(result) {
-      result = result.map(function(o) { return _extend(o, {}); });
+      this.data = result.map(function(o) { return _extend(o, {}); });
       this.length = this.data.length;
-      return templee(result);
+      return this;
     },
 
     // Filter the current data property with a function.
@@ -98,7 +98,7 @@
     // Get an array with a specific prop from each object
     // or return the data collection otherwise
     get: function(prop) {
-      if (prop) return this.map(function() { return this[prop]; });
+      if (prop) return this.data.map(function(o) { return o[prop]; });
       return this.data;
     },
 
