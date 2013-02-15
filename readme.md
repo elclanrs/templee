@@ -2,7 +2,7 @@
 
 Templee is a small API to quickly create data-driven HTML content with a syntax similar to jQuery. Templee doesn't have any dependencies and it should work in [any modern browser that supports ECMAScript5](http://kangax.github.com/es5-compat-table/).
 
-# There's currently a big bug I'm trying to solve. Come back later.
+# There's currently a big bug I'm trying to solve. Come back later. Busy with stuff, but eventually...
 
 ### Updates:
 **02/14/13**
